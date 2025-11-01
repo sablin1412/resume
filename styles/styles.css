@@ -780,3 +780,66 @@ body {
         margin-bottom: 30px;
     }
 }
+/* ==================== МОДАЛЬНОЕ ОКНО ДНЕВНИКА ==================== */
+
+.diary-form {
+    margin-top: 20px;
+}
+
+.diary-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.diary-form label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+.diary-form input,
+.diary-form textarea,
+.diary-form select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.diary-form input:focus,
+.diary-form textarea:focus,
+.diary-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.diary-form select {
+    cursor: pointer;
+    background: white;
+}
+
+.diary-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.diary-form .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Стили для модального окна (если ещё не добавлены) */
+#diaryModal .modal-content {
+    max-width: 550px;
+}
+
+#diaryModal h2 {
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-size: 24px;
+}

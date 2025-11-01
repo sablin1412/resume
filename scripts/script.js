@@ -47,7 +47,7 @@ const projectsData = {
         details: 'В этом проекте я применил навыки HTML5 и CSS3, создав адаптивный дизайн, который хорошо отображается на всех устройствах.',
         technologies: ['HTML5', 'CSS3', 'Flexbox', 'Grid'],
         github: 'https://github.com',
-        live: 'https://example.com'
+        live: 'file:///C:/Users/MSI/OneDrive/Desktop/frontend-and-backend-practice/index.html'
     },
     project2: {
         title: 'Todo-приложение',
@@ -56,7 +56,7 @@ const projectsData = {
         details: 'Создано с использованием ванильного JavaScript. Все задачи сохраняются в localStorage для сохранения данных между сеансами.',
         technologies: ['JavaScript', 'HTML5', 'CSS3', 'LocalStorage'],
         github: 'https://github.com',
-        live: 'https://example.com'
+        live: 'https://jakesgordon.com/games/racer/'
     },
     project3: {
         title: 'Интернет-магазин',
@@ -65,7 +65,7 @@ const projectsData = {
         details: 'Построено на React с использованием компонентного подхода. Интегрирована работа с API для получения данных товаров.',
         technologies: ['React', 'JavaScript', 'CSS3', 'API'],
         github: 'https://github.com',
-        live: 'https://example.com'
+        live: 'file:///C:/Users/MSI/OneDrive/Desktop/frontend-and-backend-practice/pages/goods.html'
     },
     project4: {
         title: 'Портфолио Bootstrap',
@@ -74,7 +74,7 @@ const projectsData = {
         details: 'Использован Bootstrap для быстрого создания адаптивного макета. Дизайн оптимизирован для всех размеров экранов.',
         technologies: ['Bootstrap', 'CSS3', 'Responsive Design'],
         github: 'https://github.com',
-        live: 'https://example.com'
+        live: 'https://yandex.ru/games/app/272081'
     },
     project5: {
         title: 'Калькулятор',
@@ -83,7 +83,7 @@ const projectsData = {
         details: 'Калькулятор поддерживает все основные операции, имеет очень удобный интерфейс и историю расчетов.',
         technologies: ['JavaScript', 'HTML5', 'CSS3'],
         github: 'https://github.com',
-        live: 'https://example.com'
+        live: 'https://www.desmos.com/scientific?lang=ru'
     },
     project6: {
         title: 'Приложение Погода',
@@ -92,7 +92,7 @@ const projectsData = {
         details: 'Использует React для управления состоянием и внешнее API для получения актуальных данных о погоде.',
         technologies: ['React', 'API', 'JavaScript', 'CSS3'],
         github: 'https://github.com',
-        live: 'https://example.com'
+        live: 'https://www.windy.com/ru/-%D0%A0%D0%B0%D0%B4%D0%B0%D1%80-%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D1%8B-radar?radar,'
     }
 };
 
@@ -174,36 +174,86 @@ if (contactForm) {
         }
     });
 }
+// ==================== МОДАЛЬНОЕ ОКНО ДНЕВНИКА ====================
 
-// ==================== ДОБАВЛЕНИЕ ЗАПИСИ В ДНЕВНИК ====================
-
-function addDiaryEntry() {
-    const diaryDate = prompt('Введите дату (например: 20 дек):');
-    if (!diaryDate) return;
-
-    const diaryTitle = prompt('Введите название задачи:');
-    if (!diaryTitle) return;
-
-    const diaryDesc = prompt('Введите описание:');
-    if (!diaryDesc) return;
-
-    const diaryContainer = document.querySelector('.diary-entries');
-    if (!diaryContainer) return;
-
-    const newEntry = document.createElement('div');
-    newEntry.className = 'diary-entry in-progress';
-    newEntry.innerHTML = `
-        <div class="entry-date">${diaryDate}</div>
-        <div class="entry-content">
-            <h3>${diaryTitle}</h3>
-            <p>${diaryDesc}</p>
-            <span class="status in-progress">⏳ В процессе</span>
-        </div>
-    `;
-
-    diaryContainer.insertBefore(newEntry, diaryContainer.firstChild);
-    alert('Запись успешно добавлена!');
+// Открыть модальное окно дневника
+function openDiaryModal() {
+    const modal = document.getElementById('diaryModal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
 }
+
+// Закрыть модальное окно дневника
+function closeDiaryModal() {
+    const modal = document.getElementById('diaryModal');
+    if (modal) {
+        modal.style.display = 'none';
+        // Очистить форму
+        document.getElementById('diaryForm').reset();
+    }
+}
+
+// Обработка формы дневника
+const diaryForm = document.getElementById('diaryForm');
+if (diaryForm) {
+    diaryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Получаем данные из формы
+        const entryDate = document.getElementById('entryDate').value.trim();
+        const entryTitle = document.getElementById('entryTitle').value.trim();
+        const entryDescription = document.getElementById('entryDescription').value.trim();
+        const entryStatus = document.getElementById('entryStatus').value;
+
+        // Определяем текст статуса
+        const statusText = entryStatus === 'completed' ? '✓ Завершено' : '⏳ В процессе';
+
+        // Создаём новую запись
+        const diaryContainer = document.querySelector('.diary-entries');
+        if (!diaryContainer) return;
+
+        const newEntry = document.createElement('div');
+        newEntry.className = `diary-entry ${entryStatus}`;
+        newEntry.innerHTML = `
+            <div class="entry-date">${entryDate}</div>
+            <div class="entry-content">
+                <h3>${entryTitle}</h3>
+                <p>${entryDescription}</p>
+                <span class="status ${entryStatus}">${statusText}</span>
+            </div>
+        `;
+
+        // Добавляем запись в начало списка
+        diaryContainer.insertBefore(newEntry, diaryContainer.firstChild);
+
+        // Анимация появления
+        newEntry.style.opacity = '0';
+        newEntry.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+            newEntry.style.transition = 'all 0.5s ease';
+            newEntry.style.opacity = '1';
+            newEntry.style.transform = 'translateY(0)';
+        }, 10);
+
+        // Закрываем модальное окно
+        closeDiaryModal();
+
+        // Показываем уведомление
+        alert('✅ Запись успешно добавлена!');
+    });
+}
+
+// Закрытие модала при клике вне окна
+window.addEventListener('click', function(event) {
+    const diaryModal = document.getElementById('diaryModal');
+    if (event.target === diaryModal) {
+        closeDiaryModal();
+    }
+});
+
+// Старую функцию addDiaryEntry можно удалить или закомментировать
+
 
 // ==================== АКТИВНЫЕ ССЫЛКИ НАВИГАЦИИ ====================
 

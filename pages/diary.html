@@ -12,7 +12,7 @@
         <div class="container">
             <div class="logo">
                 <div class="logo-icon">JP</div>
-                <h1>Иван Петров</h1>
+                <h1>Саблин Иван</h1>
             </div>
             <nav class="nav">
                 <ul>
@@ -94,11 +94,45 @@
 
                 <!-- Кнопка добавить запись -->
                 <div class="add-entry">
-                    <button class="btn btn-primary" onclick="addDiaryEntry()">Добавить запись</button>
+                    <button class="btn btn-primary" onclick="openDiaryModal()">Добавить запись</button>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Модальное окно для добавления записи -->
+    <div id="diaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDiaryModal()">&times;</span>
+            <h2>Добавить запись в дневник</h2>
+            <form id="diaryForm" class="diary-form">
+                <div class="form-group">
+                    <label for="entryDate">Дата:</label>
+                    <input type="text" id="entryDate" name="entryDate" required placeholder="Например: 01 ноя">
+                </div>
+
+                <div class="form-group">
+                    <label for="entryTitle">Название задачи:</label>
+                    <input type="text" id="entryTitle" name="entryTitle" required placeholder="Например: Создание портфолио">
+                </div>
+
+                <div class="form-group">
+                    <label for="entryDescription">Описание:</label>
+                    <textarea id="entryDescription" name="entryDescription" rows="4" required placeholder="Опишите задачу или достижение..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="entryStatus">Статус:</label>
+                    <select id="entryStatus" name="entryStatus">
+                        <option value="in-progress">⏳ В процессе</option>
+                        <option value="completed">✓ Завершено</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Добавить запись</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Подвал -->
     <footer class="footer">
