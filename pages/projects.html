@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты - Портфолио</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">JP</div>
+                <h1>Иван Петров</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html" class="active">Проекты</a></li>
+                    <li><a href="diary.html">Дневник</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects-section">
+            <div class="container">
+                <h2>Мои проекты</h2>
+                
+                <!-- Фильтры -->
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="html">HTML</button>
+                    <button class="filter-btn" data-filter="js">JS</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                </div>
+
+                <!-- Сетка проектов -->
+                <div class="projects-grid-full">
+                    <div class="project-card-full" data-category="html">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x250" alt="Личный сайт">
+                        </div>
+                        <h3>Личный сайт</h3>
+                        <p class="project-tech">HTML, CSS</p>
+                        <p class="project-desc">Мой первый веб-проект, верстка личной визитной карточки</p>
+                        <button class="btn btn-small" onclick="openModal('project1')">Подробнее</button>
+                    </div>
+
+                    <div class="project-card-full" data-category="js">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x250" alt="Todo">
+                        </div>
+                        <h3>Todo-приложение</h3>
+                        <p class="project-tech">JavaScript</p>
+                        <p class="project-desc">Интерактивное приложение для управления задачами</p>
+                        <button class="btn btn-small" onclick="openModal('project2')">Подробнее</button>
+                    </div>
+
+                    <div class="project-card-full" data-category="react">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x250" alt="Магазин">
+                        </div>
+                        <h3>Интернет-магазин</h3>
+                        <p class="project-tech">React</p>
+                        <p class="project-desc">E-commerce приложение с корзиной и фильтрацией товаров</p>
+                        <button class="btn btn-small" onclick="openModal('project3')">Подробнее</button>
+                    </div>
+
+                    <div class="project-card-full" data-category="html">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x250" alt="Портфолио">
+                        </div>
+                        <h3>Портфолио Bootstrap</h3>
+                        <p class="project-tech">Bootstrap, CSS</p>
+                        <p class="project-desc">Адаптивный шаблон портфолио с использованием Bootstrap</p>
+                        <button class="btn btn-small" onclick="openModal('project4')">Подробнее</button>
+                    </div>
+
+                    <div class="project-card-full" data-category="js">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x250" alt="Калькулятор">
+                        </div>
+                        <h3>Калькулятор</h3>
+                        <p class="project-tech">JavaScript, HTML, CSS</p>
+                        <p class="project-desc">Функциональный калькулятор с историей операций</p>
+                        <button class="btn btn-small" onclick="openModal('project5')">Подробнее</button>
+                    </div>
+
+                    <div class="project-card-full" data-category="react">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x250" alt="Погода">
+                        </div>
+                        <h3>Приложение Погода</h3>
+                        <p class="project-tech">React, API</p>
+                        <p class="project-desc">Приложение для отслеживания погоды с данными в реальном времени</p>
+                        <button class="btn btn-small" onclick="openModal('project6')">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Иван Петров. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

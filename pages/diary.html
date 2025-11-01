@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник - Портфолио</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">JP</div>
+                <h1>Иван Петров</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="diary.html" class="active">Дневник</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="diary-section">
+            <div class="container">
+                <h2>Мой учебный прогресс</h2>
+
+                <!-- Записи дневника -->
+                <div class="diary-entries">
+                    <div class="diary-entry completed">
+                        <div class="entry-date">15 дек</div>
+                        <div class="entry-content">
+                            <h3>Верстка макета сайта</h3>
+                            <p>Успешно завершил верстку макета с адаптивным дизайном</p>
+                            <span class="status completed">✓ Завершено</span>
+                        </div>
+                    </div>
+
+                    <div class="diary-entry completed">
+                        <div class="entry-date">10 дек</div>
+                        <div class="entry-content">
+                            <h3>JavaScript основы</h3>
+                            <p>Изучены основные концепции JavaScript: переменные, функции, события</p>
+                            <span class="status completed">✓ Завершено</span>
+                        </div>
+                    </div>
+
+                    <div class="diary-entry in-progress">
+                        <div class="entry-date">05 дек</div>
+                        <div class="entry-content">
+                            <h3>Работа с формами</h3>
+                            <p>Изучение валидации форм и обработки данных</p>
+                            <span class="status in-progress">⏳ В процессе</span>
+                        </div>
+                    </div>
+
+                    <div class="diary-entry in-progress">
+                        <div class="entry-date">01 дек</div>
+                        <div class="entry-content">
+                            <h3>Адаптивный дизайн</h3>
+                            <p>Практика создания адаптивных макетов для мобильных устройств</p>
+                            <span class="status in-progress">⏳ В процессе</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Текущие курсы -->
+                <h2 style="margin-top: 50px;">Текущие курсы</h2>
+                <div class="courses">
+                    <div class="course-item">
+                        <h3>Веб-разработка</h3>
+                        <div class="progress-bar-large">
+                            <div class="progress" style="width: 90%;">90%</div>
+                        </div>
+                    </div>
+                    <div class="course-item">
+                        <h3>JavaScript</h3>
+                        <div class="progress-bar-large">
+                            <div class="progress" style="width: 70%;">70%</div>
+                        </div>
+                    </div>
+                    <div class="course-item">
+                        <h3>React</h3>
+                        <div class="progress-bar-large">
+                            <div class="progress" style="width: 50%;">50%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка добавить запись -->
+                <div class="add-entry">
+                    <button class="btn btn-primary" onclick="addDiaryEntry()">Добавить запись</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Иван Петров. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
