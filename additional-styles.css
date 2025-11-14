@@ -1,0 +1,798 @@
+/* ==================== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ЗАДАНИЯ 16 ==================== */
+/* Этот файл содержит стили для адаптивных изображений только для index.html */
+
+/* ==================== ФИЛЬТРЫ ПРОЕКТОВ ==================== */
+
+.filters {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 2rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    min-height: 44px;
+}
+
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ==================== АДАПТИВНАЯ ГАЛЕРЕЯ ПРОЕКТОВ ==================== */
+
+.projects-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+}
+
+/* На больших экранах: 3 колонки */
+@media (min-width: 1024px) {
+    .projects-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* На планшетах: 2 колонки */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .projects-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* На мобильных: 1 колонка */
+@media (max-width: 639px) {
+    .projects-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Обертка для изображения проекта */
+.project-card__image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem 0.75rem 0 0;
+    background: #f1f5f9;
+}
+
+/* Изображение внутри карточки с object-fit */
+.project-card__image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-card__image {
+    transform: scale(1.05);
+}
+
+/* ==================== ДЕМОНСТРАЦИЯ OBJECT-FIT (только для index.html) ==================== */
+
+.object-fit-demo-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.object-fit-demo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+    .object-fit-demo {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}
+
+.object-fit-item {
+    text-align: center;
+    background: white;
+    padding: var(--space-lg);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+}
+
+.object-fit-container {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed var(--border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: var(--space-md);
+    background: #f8fafc;
+}
+
+.object-fit-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.object-fit-contain {
+    object-fit: contain;
+}
+
+.object-fit-fill {
+    object-fit: fill;
+}
+
+.object-fit-label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+/* ==================== ДНЕВНИК ==================== */
+
+.diary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.diary-intro {
+    flex: 1;
+    min-width: 280px;
+    font-size: clamp(1rem, calc(0.9rem + 0.4vw), 1.1rem);
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.diary-entries {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.diary-entry {
+    background: white;
+    border-radius: 0.75rem;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.diary-entry:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.diary-entry__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.diary-entry__title {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.diary-entry__status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status--completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status--progress {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.diary-entry__date {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: var(--space-sm);
+}
+
+.diary-entry__description {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+}
+
+.diary-entry__progress {
+    margin-top: var(--space-md);
+}
+
+/* ==================== КОНТАКТЫ ==================== */
+
+.contacts-wrapper {
+    display: grid;
+    gap: var(--space-2xl);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .contacts-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-subtitle {
+    font-size: clamp(1.25rem, calc(1rem + 1vw), 1.5rem);
+    margin-bottom: var(--space-lg);
+    color: var(--primary-color);
+}
+
+/* Форма */
+.contact-form {
+    background: white;
+    padding: var(--space-xl);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.required {
+    color: var(--danger-color);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-input.input-error,
+.form-textarea.input-error {
+    border-color: var(--danger-color);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Контактная информация */
+.contact-info {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.contact-item {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+    padding: var(--space-lg);
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.contact-item:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.contact-details {
+    flex: 1;
+}
+
+.contact-item-title {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.contact-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+.contact-text {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ==================== ТЕМНАЯ ТЕМА ==================== */
+
+@media (prefers-color-scheme: dark) {
+    .object-fit-demo-section {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+
+    .object-fit-item,
+    .diary-entry,
+    .contact-form,
+    .contact-item {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    .object-fit-container {
+        background: #334155;
+        border-color: #475569;
+    }
+
+    .form-input,
+    .form-textarea {
+        background: #0f172a;
+        border-color: #334155;
+        color: var(--text-dark);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+        border-color: var(--primary-color);
+        background: #1e293b;
+    }
+}
+
+[data-theme="dark"] .object-fit-demo-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+[data-theme="dark"] .object-fit-item,
+[data-theme="dark"] .diary-entry,
+[data-theme="dark"] .contact-form,
+[data-theme="dark"] .contact-item {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .object-fit-container {
+    background: #334155;
+    border-color: #475569;
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea {
+    background: #0f172a;
+    border-color: #334155;
+    color: var(--text-dark);
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+
+@media (max-width: 768px) {
+    .filters {
+        justify-content: flex-start;
+    }
+
+    .diary-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-form {
+        padding: var(--space-lg);
+    }
+}
+
+/* ==================== ПЕЧАТЬ ==================== */
+
+@media print {
+    .section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .projects-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav,
+    .theme-toggle,
+    .button,
+    .skip-link,
+    .filters {
+        display: none;
+    }
+}
+/* ==================== МОДАЛЬНОЕ ОКНО ДНЕВНИКА ==================== */
+
+.modal__content--diary {
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal__header {
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.modal__title {
+    font-size: clamp(1.5rem, calc(1.2rem + 1.5vw), 1.8rem);
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+}
+
+.modal__subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* Форма дневника */
+.diary-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.label-text {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.input-hint {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Range slider */
+.form-range {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #e0e0e0 0%, var(--primary-color) 50%, #e0e0e0 50%);
+    outline: none;
+    -webkit-appearance: none;
+    margin: var(--space-sm) 0;
+}
+
+.form-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.form-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.form-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.form-range::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.progress-value {
+    float: right;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+/* Radio buttons */
+.radio-group {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    padding: var(--space-md);
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    transition: var(--transition);
+    flex: 1;
+    min-width: 150px;
+}
+
+.radio-label:hover {
+    border-color: var(--primary-color);
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.radio-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    position: relative;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.radio-input:checked + .radio-custom {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+}
+
+.radio-input:checked + .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.radio-input:checked ~ .radio-text {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.radio-text {
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+/* Form actions */
+.form-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: flex-end;
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.form-actions .button {
+    min-width: 140px;
+}
+
+/* Button icon */
+.button-icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 1.1em;
+}
+
+/* Новая запись - анимация */
+.diary-entry--new {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.diary-entry--show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--success-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    font-weight: 600;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.notification--show {
+    top: 20px;
+}
+
+/* Ошибки валидации */
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    .radio-label {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    .radio-label:hover {
+        background: rgba(37, 99, 235, 0.1);
+    }
+
+    .radio-custom {
+        border-color: #475569;
+    }
+
+    .form-range {
+        background: linear-gradient(to right, #334155 0%, var(--primary-color) 50%, #334155 50%);
+    }
+}
+
+[data-theme="dark"] .radio-label {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .radio-label:hover {
+    background: rgba(37, 99, 235, 0.1);
+}
+
+[data-theme="dark"] .radio-custom {
+    border-color: #475569;
+}
+
+[data-theme="dark"] .form-range {
+    background: linear-gradient(to right, #334155 0%, var(--primary-color) 50%, #334155 50%);
+}
+
+/* Адаптивность */
+@media (max-width: 640px) {
+    .modal__content--diary {
+        max-height: 95vh;
+        width: 95%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .button {
+        width: 100%;
+    }
+
+    .radio-group {
+        flex-direction: column;
+    }
+
+    .radio-label {
+        min-width: 100%;
+    }
+}
+/* ==================== КНОПКА УДАЛЕНИЯ ЗАПИСИ ==================== */
+
+.diary-entry__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.delete-entry-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+    opacity: 0.6;
+}
+
+.delete-entry-btn:hover {
+    opacity: 1;
+    background: rgba(220, 53, 69, 0.1);
+    transform: scale(1.1);
+}
+
+.delete-entry-btn:active {
+    transform: scale(0.95);
+}
+
+/* Анимация удаления */
+.diary-entry {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Темная тема для кнопки удаления */
+@media (prefers-color-scheme: dark) {
+    .delete-entry-btn:hover {
+        background: rgba(239, 68, 68, 0.2);
+    }
+}
+
+[data-theme="dark"] .delete-entry-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+}

@@ -2,144 +2,227 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дневник - Портфолио</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Мой дневник обучения веб-разработке - записи о прогрессе и достижениях">
+    <title>Дневник обучения - Портфолио Студента</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <div class="logo-icon">JP</div>
-                <h1>Саблин Иван</h1>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="../index.html">Главная</a></li>
-                    <li><a href="projects.html">Проекты</a></li>
-                    <li><a href="diary.html" class="active">Дневник</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-    <main>
-        <section class="diary-section">
+    <div class="page">
+        <header class="header">
+            <div class="container header__container">
+                <div class="logo">Портфолио Студента</div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <nav class="nav" aria-label="Основная навигация">
             <div class="container">
-                <h2>Мой учебный прогресс</h2>
+                <ul class="nav__list">
+                    <li><a href="../index.html" class="nav__link">Главная</a></li>
+                    <li><a href="projects.html" class="nav__link">Практики</a></li>
+                    <li><a href="diary.html" class="nav__link active">Новости</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
 
-                <!-- Записи дневника -->
-                <div class="diary-entries">
-                    <div class="diary-entry completed">
-                        <div class="entry-date">15 дек</div>
-                        <div class="entry-content">
-                            <h3>Верстка макета сайта</h3>
-                            <p>Успешно завершил верстку макета с адаптивным дизайном</p>
-                            <span class="status completed">✓ Завершено</span>
-                        </div>
+        <main id="main" class="main">
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Дневник моего обучения</h1>
+                    
+                    <div class="diary-header">
+                        <p class="diary-intro">Здесь я фиксирую свой прогресс в изучении веб-разработки. Каждая запись отражает новые знания и навыки, которые я получаю.</p>
+                        <button class="button button--primary" id="addEntryBtn">
+                            <span class="button-icon">➕</span>
+                            Добавить запись
+                        </button>
                     </div>
 
-                    <div class="diary-entry completed">
-                        <div class="entry-date">10 дек</div>
-                        <div class="entry-content">
-                            <h3>JavaScript основы</h3>
-                            <p>Изучены основные концепции JavaScript: переменные, функции, события</p>
-                            <span class="status completed">✓ Завершено</span>
-                        </div>
-                    </div>
+                    <div class="diary-entries">
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <h3 class="diary-entry__title">Верстка макета сайта</h3>
+                                <span class="diary-entry__status status--completed">✓ Завершено</span>
+                            </div>
+                            <p class="diary-entry__date">10 ноября 2025</p>
+                            <p class="diary-entry__description">Успешно завершил верстку макета с адаптивным дизайном. Применил Grid и Flexbox для создания современного интерфейса.</p>
+                            <div class="diary-entry__progress">
+                                <div class="progress-bar">
+                                    <div class="progress-bar__fill" style="--progress: 100%;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </article>
 
-                    <div class="diary-entry in-progress">
-                        <div class="entry-date">05 дек</div>
-                        <div class="entry-content">
-                            <h3>Работа с формами</h3>
-                            <p>Изучение валидации форм и обработки данных</p>
-                            <span class="status in-progress">⏳ В процессе</span>
-                        </div>
-                    </div>
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <h3 class="diary-entry__title">Изучение JavaScript</h3>
+                                <span class="diary-entry__status status--completed">✓ Завершено</span>
+                            </div>
+                            <p class="diary-entry__date">5 ноября 2025</p>
+                            <p class="diary-entry__description">Изучены основные концепции JavaScript: переменные, функции, события. Создал несколько интерактивных элементов.</p>
+                            <div class="diary-entry__progress">
+                                <div class="progress-bar">
+                                    <div class="progress-bar__fill" style="--progress: 100%;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </article>
 
-                    <div class="diary-entry in-progress">
-                        <div class="entry-date">01 дек</div>
-                        <div class="entry-content">
-                            <h3>Адаптивный дизайн</h3>
-                            <p>Практика создания адаптивных макетов для мобильных устройств</p>
-                            <span class="status in-progress">⏳ В процессе</span>
-                        </div>
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <h3 class="diary-entry__title">Работа с формами</h3>
+                                <span class="diary-entry__status status--progress">⏳ В процессе</span>
+                            </div>
+                            <p class="diary-entry__date">8 ноября 2025</p>
+                            <p class="diary-entry__description">Изучение валидации форм и обработки данных. Разбираюсь с регулярными выражениями для проверки email и телефонов.</p>
+                            <div class="diary-entry__progress">
+                                <div class="progress-bar">
+                                    <div class="progress-bar__fill" style="--progress: 65%;" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <h3 class="diary-entry__title">Адаптивная верстка</h3>
+                                <span class="diary-entry__status status--progress">⏳ В процессе</span>
+                            </div>
+                            <p class="diary-entry__date">1 ноября 2025</p>
+                            <p class="diary-entry__description">Практика создания адаптивных макетов для мобильных устройств. Изучаю медиазапросы и контейнерные запросы.</p>
+                            <div class="diary-entry__progress">
+                                <div class="progress-bar">
+                                    <div class="progress-bar__fill" style="--progress: 80%;" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
+            </section>
+        </main>
 
-                <!-- Текущие курсы -->
-                <h2 style="margin-top: 50px;">Текущие курсы</h2>
-                <div class="courses">
-                    <div class="course-item">
-                        <h3>Веб-разработка</h3>
-                        <div class="progress-bar-large">
-                            <div class="progress" style="width: 90%;">90%</div>
-                        </div>
-                    </div>
-                    <div class="course-item">
-                        <h3>JavaScript</h3>
-                        <div class="progress-bar-large">
-                            <div class="progress" style="width: 70%;">70%</div>
-                        </div>
-                    </div>
-                    <div class="course-item">
-                        <h3>React</h3>
-                        <div class="progress-bar-large">
-                            <div class="progress" style="width: 50%;">50%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Кнопка добавить запись -->
-                <div class="add-entry">
-                    <button class="btn btn-primary" onclick="openDiaryModal()">Добавить запись</button>
+        <footer class="footer">
+            <div class="container footer__container">
+                <p class="footer__copyright">&copy; 2024 Саблин Иван Петрович. Все права защищены.</p>
+                <div class="footer__links">
+                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
+                    <a href="mailto:ivansablin90@gmail.com" class="footer__link">Email</a>
                 </div>
             </div>
-        </section>
-    </main>
+        </footer>
+    </div>
 
     <!-- Модальное окно для добавления записи -->
-    <div id="diaryModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeDiaryModal()">&times;</span>
-            <h2>Добавить запись в дневник</h2>
-            <form id="diaryForm" class="diary-form">
+    <div id="addEntryModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="addEntryModalTitle" hidden>
+        <div class="modal__overlay" data-close-modal-diary></div>
+        <div class="modal__content modal__content--diary">
+            <button class="modal__close" data-close-modal-diary aria-label="Закрыть модальное окно">&times;</button>
+            
+            <div class="modal__header">
+                <h2 id="addEntryModalTitle" class="modal__title">📝 Добавить новую запись</h2>
+                <p class="modal__subtitle">Опишите свой прогресс в обучении</p>
+            </div>
+
+            <form id="addEntryForm" class="diary-form" novalidate>
                 <div class="form-group">
-                    <label for="entryDate">Дата:</label>
-                    <input type="text" id="entryDate" name="entryDate" required placeholder="Например: 01 ноя">
+                    <label for="entryTitle" class="form-label">
+                        <span class="label-text">Название записи</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="entryTitle" 
+                        name="entryTitle" 
+                        class="form-input" 
+                        placeholder="Например: Изучение React Hooks"
+                        required
+                        maxlength="100">
+                    <span class="input-hint">Максимум 100 символов</span>
                 </div>
 
                 <div class="form-group">
-                    <label for="entryTitle">Название задачи:</label>
-                    <input type="text" id="entryTitle" name="entryTitle" required placeholder="Например: Создание портфолио">
+                    <label for="entryDescription" class="form-label">
+                        <span class="label-text">Описание</span>
+                        <span class="required">*</span>
+                    </label>
+                    <textarea 
+                        id="entryDescription" 
+                        name="entryDescription" 
+                        class="form-textarea" 
+                        rows="5" 
+                        placeholder="Подробно опишите, чему вы научились или над чем работаете..."
+                        required
+                        maxlength="500"></textarea>
+                    <span class="input-hint">Максимум 500 символов</span>
                 </div>
 
                 <div class="form-group">
-                    <label for="entryDescription">Описание:</label>
-                    <textarea id="entryDescription" name="entryDescription" rows="4" required placeholder="Опишите задачу или достижение..."></textarea>
+                    <label for="entryProgress" class="form-label">
+                        <span class="label-text">Прогресс выполнения</span>
+                        <span class="progress-value" id="progressValue">50%</span>
+                    </label>
+                    <input 
+                        type="range" 
+                        id="entryProgress" 
+                        name="entryProgress" 
+                        class="form-range" 
+                        min="0" 
+                        max="100" 
+                        value="50"
+                        step="5">
+                    <div class="range-labels">
+                        <span>0%</span>
+                        <span>25%</span>
+                        <span>50%</span>
+                        <span>75%</span>
+                        <span>100%</span>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="entryStatus">Статус:</label>
-                    <select id="entryStatus" name="entryStatus">
-                        <option value="in-progress">⏳ В процессе</option>
-                        <option value="completed">✓ Завершено</option>
-                    </select>
+                    <label class="form-label">
+                        <span class="label-text">Статус</span>
+                        <span class="required">*</span>
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="entryStatus" 
+                                value="progress" 
+                                checked
+                                class="radio-input">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">⏳ В процессе</span>
+                        </label>
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="entryStatus" 
+                                value="completed"
+                                class="radio-input">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">✓ Завершено</span>
+                        </label>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Добавить запись</button>
+                <div class="form-actions">
+                    <button type="button" class="button button--secondary" data-close-modal-diary>
+                        Отмена
+                    </button>
+                    <button type="submit" class="button button--primary">
+                        <span class="button-icon">💾</span>
+                        Сохранить запись
+                    </button>
+                </div>
             </form>
         </div>
     </div>
-
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Иван Петров. Все права защищены.</p>
-        </div>
-    </footer>
 
     <script src="../scripts/script.js"></script>
 </body>
