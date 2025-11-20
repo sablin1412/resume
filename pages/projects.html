@@ -6,167 +6,169 @@
     <meta name="description" content="Все мои проекты по веб-разработке - HTML, CSS, JavaScript, React">
     <title>Мои проекты - Портфолио Студента</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../additional-styles.css">
 </head>
 <body>
     <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
     <div class="page">
-        <header class="header">
+        <header class="header" role="banner">
             <div class="container header__container">
                 <div class="logo">Портфолио Студента</div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
-                    <span class="theme-icon">🌙</span>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                    <span class="sr-only">Тема: Светлая</span>
                 </button>
             </div>
         </header>
 
-        <nav class="nav" aria-label="Основная навигация">
+        <nav class="nav" role="navigation" aria-label="Основная навигация">
             <div class="container">
                 <ul class="nav__list">
                     <li><a href="../index.html" class="nav__link">Главная</a></li>
-                    <li><a href="projects.html" class="nav__link active">Практики</a></li>
+                    <li><a href="projects.html" class="nav__link" aria-current="page">Практики</a></li>
                     <li><a href="diary.html" class="nav__link">Новости</a></li>
                     <li><a href="contacts.html" class="nav__link">Контакты</a></li>
                 </ul>
             </div>
         </nav>
 
-        <main id="main" class="main">
-            <section class="section">
+        <main id="main" class="main" role="main">
+            <section class="section" aria-labelledby="projects-title">
                 <div class="container">
-                    <h1 class="section-title">Все мои проекты</h1>
+                    <h1 id="projects-title" class="section-title">Все мои проекты</h1>
                     
-                    <div class="filters">
-                        <button class="filter-btn active" data-filter="all">Все</button>
-                        <button class="filter-btn" data-filter="html">HTML/CSS</button>
-                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                        <button class="filter-btn" data-filter="react">React</button>
+                    <div class="filters" role="group" aria-label="Фильтры проектов по технологиям">
+                        <button class="filter-btn active" data-filter="all" aria-pressed="true">Все</button>
+                        <button class="filter-btn" data-filter="html" aria-pressed="false">HTML/CSS</button>
+                        <button class="filter-btn" data-filter="javascript" aria-pressed="false">JavaScript</button>
+                        <button class="filter-btn" data-filter="react" aria-pressed="false">React</button>
                     </div>
 
                     <div class="projects-area">
-                        <div class="projects-gallery">
-                            <!-- Проект 1 -->
-                            <article class="project-card" data-category="html">
+                        <div class="projects-gallery" role="list" aria-label="Список проектов">
+                            <!-- Проект 1: Личный сайт -->
+                            <article class="project-card" data-category="html" role="listitem">
                                 <div class="project-card__image-wrapper">
                                     <img src="../images/ww1.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот личного сайта" 
+                                         alt="Скриншот личного сайта-визитки с адаптивным дизайном" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Личный сайт</h3>
-                                    <div class="project-card__tags">
-                                        <span class="tag">HTML</span>
-                                        <span class="tag">CSS</span>
+                                    <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                        <span class="tag" role="listitem">HTML</span>
+                                        <span class="tag" role="listitem">CSS</span>
                                     </div>
                                     <p class="project-card__description">Мой первый веб-проект, верстка личной визитной карточки</p>
-                                    <button class="button button--secondary project-details-btn" data-project="0">Подробнее</button>
+                                    <button class="button button--secondary project-details-btn" data-project="0" aria-label="Показать подробную информацию о проекте Личный сайт">Подробнее</button>
                                 </div>
                             </article>
 
-                            <!-- Проект 2 -->
-                            <article class="project-card" data-category="javascript">
+                            <!-- Проект 2: Todo-приложение -->
+                            <article class="project-card" data-category="javascript" role="listitem">
                                 <div class="project-card__image-wrapper">
                                     <img src="../images/ww2.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот Todo-приложения" 
+                                         alt="Скриншот Todo-приложения с списком задач" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Todo-приложение</h3>
-                                    <div class="project-card__tags">
-                                        <span class="tag">JavaScript</span>
+                                    <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                        <span class="tag" role="listitem">JavaScript</span>
                                     </div>
                                     <p class="project-card__description">Функциональное приложение с сохранением данных в localStorage</p>
-                                    <button class="button button--secondary project-details-btn" data-project="1">Подробнее</button>
+                                    <button class="button button--secondary project-details-btn" data-project="1" aria-label="Показать подробную информацию о проекте Todo-приложение">Подробнее</button>
                                 </div>
                             </article>
 
-                            <!-- Проект 3 -->
-                            <article class="project-card" data-category="react">
+                            <!-- Проект 3: Интернет-магазин -->
+                            <article class="project-card" data-category="react" role="listitem">
                                 <div class="project-card__image-wrapper">
                                     <img src="../images/ww3.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот интернет-магазина" 
+                                         alt="Скриншот интернет-магазина с карточками товаров и корзиной" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Интернет-магазин</h3>
-                                    <div class="project-card__tags">
-                                        <span class="tag">React</span>
+                                    <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                        <span class="tag" role="listitem">React</span>
                                     </div>
                                     <p class="project-card__description">Сайт с корзиной и фильтрацией товаров</p>
-                                    <button class="button button--secondary project-details-btn" data-project="2">Подробнее</button>
+                                    <button class="button button--secondary project-details-btn" data-project="2" aria-label="Показать подробную информацию о проекте Интернет-магазин">Подробнее</button>
                                 </div>
                             </article>
 
-                            <!-- Проект 4 -->
-                            <article class="project-card" data-category="html">
+                            <!-- Проект 4: Портфолио Bootstrap -->
+                            <article class="project-card" data-category="html" role="listitem">
                                 <div class="project-card__image-wrapper">
                                     <img src="../images/ww4.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот портфолио Bootstrap" 
+                                         alt="Скриншот портфолио на Bootstrap с сеточной системой" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Портфолио Bootstrap</h3>
-                                    <div class="project-card__tags">
-                                        <span class="tag">Bootstrap</span>
-                                        <span class="tag">CSS</span>
+                                    <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                        <span class="tag" role="listitem">Bootstrap</span>
+                                        <span class="tag" role="listitem">CSS</span>
                                     </div>
                                     <p class="project-card__description">Адаптивный шаблон портфолио на основе Bootstrap</p>
-                                    <button class="button button--secondary project-details-btn" data-project="3">Подробнее</button>
+                                    <button class="button button--secondary project-details-btn" data-project="3" aria-label="Показать подробную информацию о проекте Портфолио Bootstrap">Подробнее</button>
                                 </div>
                             </article>
 
-                            <!-- Проект 5 -->
-                            <article class="project-card" data-category="javascript">
+                            <!-- Проект 5: Калькулятор -->
+                            <article class="project-card" data-category="javascript" role="listitem">
                                 <div class="project-card__image-wrapper">
                                     <img src="../images/ww5.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот калькулятора" 
+                                         alt="Скриншот калькулятора с интерфейсом для вычислений" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Калькулятор</h3>
-                                    <div class="project-card__tags">
-                                        <span class="tag">JavaScript</span>
-                                        <span class="tag">HTML</span>
-                                        <span class="tag">CSS</span>
+                                    <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                        <span class="tag" role="listitem">JavaScript</span>
+                                        <span class="tag" role="listitem">HTML</span>
+                                        <span class="tag" role="listitem">CSS</span>
                                     </div>
                                     <p class="project-card__description">Функциональный калькулятор с историей операций</p>
-                                    <button class="button button--secondary project-details-btn" data-project="4">Подробнее</button>
+                                    <button class="button button--secondary project-details-btn" data-project="4" aria-label="Показать подробную информацию о проекте Калькулятор">Подробнее</button>
                                 </div>
                             </article>
 
-                            <!-- Проект 6 -->
-                            <article class="project-card" data-category="react">
+                            <!-- Проект 6: Приложение Погода -->
+                            <article class="project-card" data-category="react" role="listitem">
                                 <div class="project-card__image-wrapper">
                                     <img src="../images/ww6.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот приложения погоды" 
+                                         alt="Скриншот приложения погоды с прогнозом на неделю" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Приложение Погода</h3>
-                                    <div class="project-card__tags">
-                                        <span class="tag">React</span>
-                                        <span class="tag">API</span>
+                                    <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                        <span class="tag" role="listitem">React</span>
+                                        <span class="tag" role="listitem">API</span>
                                     </div>
                                     <p class="project-card__description">Сайт для отслеживания погоды с данными в реальном времени</p>
-                                    <button class="button button--secondary project-details-btn" data-project="5">Подробнее</button>
+                                    <button class="button button--secondary project-details-btn" data-project="5" aria-label="Показать подробную информацию о проекте Приложение Погода">Подробнее</button>
                                 </div>
                             </article>
                         </div>
@@ -175,27 +177,68 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <div class="container footer__container">
-                <p class="footer__copyright">&copy; 2024 Саблин Иван Петрович. Все права защищены.</p>
-                <div class="footer__links">
-                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
-                    <a href="mailto:ivansablin90@gmail.com" class="footer__link">Email</a>
-                </div>
+                <p class="footer__copyright">&copy; 2025 Саблин Иван Петрович. Все права защищены.</p>
+                <nav class="footer__links" aria-label="Социальные сети">
+                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="GitHub профиль (открывается в новой вкладке)">GitHub</a>
+                    <a href="mailto:ivansablin90@gmail.com" class="footer__link" aria-label="Отправить email">Email</a>
+                </nav>
             </div>
         </footer>
     </div>
 
-    <!-- Модальное окно -->
-    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
-        <div class="modal__overlay" data-close-modal></div>
-        <div class="modal__content">
+    <!-- Модальное окно для деталей проекта -->
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" hidden>
+        <div class="modal__overlay" data-close-modal aria-label="Закрыть модальное окно"></div>
+        <div class="modal__content" tabindex="-1">
             <button class="modal__close" data-close-modal aria-label="Закрыть модальное окно">&times;</button>
             <h2 id="modalTitle" class="modal__title"></h2>
-            <div class="modal__body"></div>
+            <div id="modalDescription" class="modal__body"></div>
         </div>
     </div>
 
+    <!-- Контейнер для уведомлений -->
+    <div id="notifications" class="notifications-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
     <script src="../scripts/script.js"></script>
+    <script>
+        // Фильтрация проектов с доступностью
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('[data-category]');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Обновление aria-pressed для всех кнопок
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
+                    
+                    this.classList.add('active');
+                    this.setAttribute('aria-pressed', 'true');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    let visibleCount = 0;
+                    
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => card.style.opacity = '1', 10);
+                            visibleCount++;
+                        } else {
+                            card.style.opacity = '0';
+                            setTimeout(() => card.style.display = 'none', 300);
+                        }
+                    });
+                    
+                    // Announce результат фильтрации для скринридеров
+                    const filterText = this.textContent;
+                    announceToScreenReader(`Фильтр ${filterText} применён. Показано проектов: ${visibleCount}`);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

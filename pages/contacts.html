@@ -6,42 +6,47 @@
     <meta name="description" content="Свяжитесь со мной - контактная форма и информация">
     <title>Контакты - Портфолио Студента</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../additional-styles.css">
 </head>
 <body>
     <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
     <div class="page">
-        <header class="header">
+        <header class="header" role="banner">
             <div class="container header__container">
                 <div class="logo">Портфолио Студента</div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
-                    <span class="theme-icon">🌙</span>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                    <span class="sr-only">Тема: Светлая</span>
                 </button>
             </div>
         </header>
 
-        <nav class="nav" aria-label="Основная навигация">
+        <nav class="nav" role="navigation" aria-label="Основная навигация">
             <div class="container">
                 <ul class="nav__list">
                     <li><a href="../index.html" class="nav__link">Главная</a></li>
                     <li><a href="projects.html" class="nav__link">Практики</a></li>
                     <li><a href="diary.html" class="nav__link">Новости</a></li>
-                    <li><a href="contacts.html" class="nav__link active">Контакты</a></li>
+                    <li><a href="contacts.html" class="nav__link" aria-current="page">Контакты</a></li>
                 </ul>
             </div>
         </nav>
 
-        <main id="main" class="main">
-            <section class="section">
+        <main id="main" class="main" role="main">
+            <section class="section" aria-labelledby="contacts-title">
                 <div class="container">
-                    <h1 class="section-title">Свяжитесь со мной</h1>
+                    <h1 id="contacts-title" class="section-title">Свяжитесь со мной</h1>
                     
                     <div class="contacts-wrapper">
+                        <!-- Форма с полной доступностью (практика 17) -->
                         <div class="contact-form-section">
                             <h2 class="contact-subtitle">Отправить сообщение</h2>
-                            <form id="contactForm" class="contact-form" novalidate>
+                            <form id="contactForm" class="contact-form" novalidate aria-label="Форма обратной связи">
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Имя <span class="required">*</span></label>
+                                    <label for="name" class="form-label">
+                                        Имя <span class="required" aria-hidden="true">*</span>
+                                    </label>
                                     <input 
                                         type="text" 
                                         id="name" 
@@ -49,11 +54,16 @@
                                         class="form-input" 
                                         placeholder="Введите ваше имя"
                                         required
+                                        aria-required="true"
+                                        aria-describedby="name-hint"
                                         autocomplete="name">
+                                    <span id="name-hint" class="input-hint">Минимум 2 символа</span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email" class="form-label">Email <span class="required">*</span></label>
+                                    <label for="email" class="form-label">
+                                        Email <span class="required" aria-hidden="true">*</span>
+                                    </label>
                                     <input 
                                         type="email" 
                                         id="email" 
@@ -61,21 +71,32 @@
                                         class="form-input" 
                                         placeholder="your@email.com"
                                         required
+                                        aria-required="true"
+                                        aria-describedby="email-hint"
                                         autocomplete="email">
+                                    <span id="email-hint" class="input-hint">Введите корректный email адрес</span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="message" class="form-label">Сообщение <span class="required">*</span></label>
+                                    <label for="message" class="form-label">
+                                        Сообщение <span class="required" aria-hidden="true">*</span>
+                                    </label>
                                     <textarea 
                                         id="message" 
                                         name="message" 
                                         class="form-textarea" 
                                         rows="6" 
                                         placeholder="Введите ваше сообщение"
-                                        required></textarea>
+                                        required
+                                        aria-required="true"
+                                        aria-describedby="message-hint"></textarea>
+                                    <span id="message-hint" class="input-hint">Минимум 10 символов</span>
                                 </div>
 
-                                <button type="submit" class="button button--primary">Отправить сообщение</button>
+                                <button type="submit" class="button button--primary">
+                                    <span aria-hidden="true">📧</span>
+                                    Отправить сообщение
+                                </button>
                             </form>
                         </div>
 
@@ -83,7 +104,7 @@
                             <h2 class="contact-subtitle">Контактная информация</h2>
                             <div class="contact-info">
                                 <div class="contact-item">
-                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-icon" aria-hidden="true">📧</div>
                                     <div class="contact-details">
                                         <h3 class="contact-item-title">Email</h3>
                                         <a href="mailto:ivansablin90@gmail.com" class="contact-link">ivansablin90@gmail.com</a>
@@ -91,15 +112,15 @@
                                 </div>
 
                                 <div class="contact-item">
-                                    <div class="contact-icon">💻</div>
+                                    <div class="contact-icon" aria-hidden="true">💻</div>
                                     <div class="contact-details">
                                         <h3 class="contact-item-title">GitHub</h3>
-                                        <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="contact-link">sablin1412</a>
+                                        <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Мой профиль на GitHub (открывается в новой вкладке)">sablin1412</a>
                                     </div>
                                 </div>
 
                                 <div class="contact-item">
-                                    <div class="contact-icon">📍</div>
+                                    <div class="contact-icon" aria-hidden="true">📍</div>
                                     <div class="contact-details">
                                         <h3 class="contact-item-title">Локация</h3>
                                         <p class="contact-text">Москва, Россия</p>
@@ -107,7 +128,7 @@
                                 </div>
 
                                 <div class="contact-item">
-                                    <div class="contact-icon">📱</div>
+                                    <div class="contact-icon" aria-hidden="true">📱</div>
                                     <div class="contact-details">
                                         <h3 class="contact-item-title">Телефон</h3>
                                         <a href="tel:+79999999999" class="contact-link">+7 (999) 999-99-99</a>
@@ -120,17 +141,106 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <div class="container footer__container">
-                <p class="footer__copyright">&copy; 2024 Саблин Иван Петрович. Все права защищены.</p>
-                <div class="footer__links">
-                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
-                    <a href="mailto:ivansablin90@gmail.com" class="footer__link">Email</a>
-                </div>
+                <p class="footer__copyright">&copy; 2025 Саблин Иван Петрович. Все права защищены.</p>
+                <nav class="footer__links" aria-label="Социальные сети">
+                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="GitHub профиль">GitHub</a>
+                    <a href="mailto:ivansablin90@gmail.com" class="footer__link" aria-label="Отправить email">Email</a>
+                </nav>
             </div>
         </footer>
     </div>
 
+    <!-- Контейнер для уведомлений (практика 18) -->
+    <div id="notifications" class="notifications-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
     <script src="../scripts/script.js"></script>
+    <script>
+        // Валидация формы с доступностью
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (!contactForm) return;
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const message = document.getElementById('message');
+                
+                // Очистка предыдущих ошибок
+                document.querySelectorAll('.error-message').forEach(el => el.remove());
+                document.querySelectorAll('[aria-invalid="true"]').forEach(el => {
+                    el.setAttribute('aria-invalid', 'false');
+                    el.classList.remove('input-error');
+                });
+                
+                let isValid = true;
+                let firstInvalidField = null;
+                
+                // Валидация имени
+                if (name.value.trim().length < 2) {
+                    showError(name, 'Имя должно содержать минимум 2 символа');
+                    isValid = false;
+                    if (!firstInvalidField) firstInvalidField = name;
+                }
+                
+                // Валидация email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value.trim())) {
+                    showError(email, 'Введите корректный email');
+                    isValid = false;
+                    if (!firstInvalidField) firstInvalidField = email;
+                }
+                
+                // Валидация сообщения
+                if (message.value.trim().length < 10) {
+                    showError(message, 'Сообщение должно содержать минимум 10 символов');
+                    isValid = false;
+                    if (!firstInvalidField) firstInvalidField = message;
+                }
+                
+                if (isValid) {
+                    // Имитация отправки
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    setLoadingState(submitBtn, true);
+                    
+                    setTimeout(() => {
+                        setLoadingState(submitBtn, false);
+                        showNotification('✓ Спасибо за сообщение! Я свяжусь с вами в ближайшее время.', 'success');
+                        contactForm.reset();
+                        
+                        // Announce для скринридеров
+                        announceToScreenReader('Форма успешно отправлена');
+                    }, 2000);
+                } else {
+                    // Фокус на первое невалидное поле
+                    if (firstInvalidField) {
+                        firstInvalidField.focus();
+                        announceToScreenReader('Форма содержит ошибки. Пожалуйста, исправьте их.');
+                    }
+                }
+            });
+            
+            function showError(input, message) {
+                input.classList.add('input-error');
+                input.setAttribute('aria-invalid', 'true');
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.id = input.id + '-error';
+                errorDiv.textContent = message;
+                errorDiv.setAttribute('role', 'alert');
+                
+                input.parentElement.appendChild(errorDiv);
+                
+                // Обновляем aria-describedby для связи с ошибкой
+                const describedBy = input.getAttribute('aria-describedby') || '';
+                input.setAttribute('aria-describedby', describedBy + ' ' + errorDiv.id);
+            }
+        });
+    </script>
 </body>
 </html>

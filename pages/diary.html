@@ -6,97 +6,106 @@
     <meta name="description" content="Мой дневник обучения веб-разработке - записи о прогрессе и достижениях">
     <title>Дневник обучения - Портфолио Студента</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../accessibility.js">
 </head>
 <body>
     <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
     <div class="page">
-        <header class="header">
+        <header class="header" role="banner">
             <div class="container header__container">
                 <div class="logo">Портфолио Студента</div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
-                    <span class="theme-icon">🌙</span>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
                 </button>
             </div>
         </header>
 
-        <nav class="nav" aria-label="Основная навигация">
+        <nav class="nav" role="navigation" aria-label="Основная навигация">
             <div class="container">
                 <ul class="nav__list">
                     <li><a href="../index.html" class="nav__link">Главная</a></li>
                     <li><a href="projects.html" class="nav__link">Практики</a></li>
-                    <li><a href="diary.html" class="nav__link active">Новости</a></li>
+                    <li><a href="diary.html" class="nav__link" aria-current="page">Новости</a></li>
                     <li><a href="contacts.html" class="nav__link">Контакты</a></li>
                 </ul>
             </div>
         </nav>
 
-        <main id="main" class="main">
-            <section class="section">
+        <main id="main" class="main" role="main">
+            <section class="section" aria-labelledby="diary-title">
                 <div class="container">
-                    <h1 class="section-title">Дневник моего обучения</h1>
+                    <h1 id="diary-title" class="section-title">Дневник моего обучения</h1>
                     
                     <div class="diary-header">
                         <p class="diary-intro">Здесь я фиксирую свой прогресс в изучении веб-разработки. Каждая запись отражает новые знания и навыки, которые я получаю.</p>
-                        <button class="button button--primary" id="addEntryBtn">
-                            <span class="button-icon">➕</span>
+                        <button class="button button--primary" id="addEntryBtn" aria-label="Открыть форму для добавления новой записи в дневник">
+                            <span class="button-icon" aria-hidden="true">➕</span>
                             Добавить запись
                         </button>
                     </div>
 
-                    <div class="diary-entries">
-                        <article class="diary-entry">
+                    <div class="diary-entries" role="list" aria-label="Список записей дневника">
+                        <article class="diary-entry" role="listitem">
                             <div class="diary-entry__header">
                                 <h3 class="diary-entry__title">Верстка макета сайта</h3>
-                                <span class="diary-entry__status status--completed">✓ Завершено</span>
+                                <div class="diary-entry__actions">
+                                    <span class="diary-entry__status status--completed">✓ Завершено</span>
+                                </div>
                             </div>
-                            <p class="diary-entry__date">10 ноября 2025</p>
+                            <p class="diary-entry__date"><time datetime="2025-11-10">10 ноября 2025</time></p>
                             <p class="diary-entry__description">Успешно завершил верстку макета с адаптивным дизайном. Применил Grid и Flexbox для создания современного интерфейса.</p>
                             <div class="diary-entry__progress">
-                                <div class="progress-bar">
-                                    <div class="progress-bar__fill" style="--progress: 100%;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Прогресс выполнения: 100 процентов">
+                                    <div class="progress-bar__fill" style="--progress: 100%;"></div>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="diary-entry">
+                        <article class="diary-entry" role="listitem">
                             <div class="diary-entry__header">
                                 <h3 class="diary-entry__title">Изучение JavaScript</h3>
-                                <span class="diary-entry__status status--completed">✓ Завершено</span>
+                                <div class="diary-entry__actions">
+                                    <span class="diary-entry__status status--completed">✓ Завершено</span>
+                                </div>
                             </div>
-                            <p class="diary-entry__date">5 ноября 2025</p>
+                            <p class="diary-entry__date"><time datetime="2025-11-05">5 ноября 2025</time></p>
                             <p class="diary-entry__description">Изучены основные концепции JavaScript: переменные, функции, события. Создал несколько интерактивных элементов.</p>
                             <div class="diary-entry__progress">
-                                <div class="progress-bar">
-                                    <div class="progress-bar__fill" style="--progress: 100%;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Прогресс выполнения: 100 процентов">
+                                    <div class="progress-bar__fill" style="--progress: 100%;"></div>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="diary-entry">
+                        <article class="diary-entry" role="listitem">
                             <div class="diary-entry__header">
                                 <h3 class="diary-entry__title">Работа с формами</h3>
-                                <span class="diary-entry__status status--progress">⏳ В процессе</span>
+                                <div class="diary-entry__actions">
+                                    <span class="diary-entry__status status--progress">⏳ В процессе</span>
+                                </div>
                             </div>
-                            <p class="diary-entry__date">8 ноября 2025</p>
+                            <p class="diary-entry__date"><time datetime="2025-11-08">8 ноября 2025</time></p>
                             <p class="diary-entry__description">Изучение валидации форм и обработки данных. Разбираюсь с регулярными выражениями для проверки email и телефонов.</p>
                             <div class="diary-entry__progress">
-                                <div class="progress-bar">
-                                    <div class="progress-bar__fill" style="--progress: 65%;" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Прогресс выполнения: 65 процентов">
+                                    <div class="progress-bar__fill" style="--progress: 65%;"></div>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="diary-entry">
+                        <article class="diary-entry" role="listitem">
                             <div class="diary-entry__header">
                                 <h3 class="diary-entry__title">Адаптивная верстка</h3>
-                                <span class="diary-entry__status status--progress">⏳ В процессе</span>
+                                <div class="diary-entry__actions">
+                                    <span class="diary-entry__status status--progress">⏳ В процессе</span>
+                                </div>
                             </div>
-                            <p class="diary-entry__date">1 ноября 2025</p>
+                            <p class="diary-entry__date"><time datetime="2025-11-01">1 ноября 2025</time></p>
                             <p class="diary-entry__description">Практика создания адаптивных макетов для мобильных устройств. Изучаю медиазапросы и контейнерные запросы.</p>
                             <div class="diary-entry__progress">
-                                <div class="progress-bar">
-                                    <div class="progress-bar__fill" style="--progress: 80%;" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Прогресс выполнения: 80 процентов">
+                                    <div class="progress-bar__fill" style="--progress: 80%;"></div>
                                 </div>
                             </div>
                         </article>
@@ -105,33 +114,33 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <div class="container footer__container">
-                <p class="footer__copyright">&copy; 2024 Саблин Иван Петрович. Все права защищены.</p>
-                <div class="footer__links">
-                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
-                    <a href="mailto:ivansablin90@gmail.com" class="footer__link">Email</a>
-                </div>
+                <p class="footer__copyright">&copy; 2025 Саблин Иван Петрович. Все права защищены.</p>
+                <nav class="footer__links" aria-label="Социальные сети">
+                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="GitHub профиль (открывается в новой вкладке)">GitHub</a>
+                    <a href="mailto:ivansablin90@gmail.com" class="footer__link" aria-label="Отправить email">Email</a>
+                </nav>
             </div>
         </footer>
     </div>
 
     <!-- Модальное окно для добавления записи -->
-    <div id="addEntryModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="addEntryModalTitle" hidden>
-        <div class="modal__overlay" data-close-modal-diary></div>
-        <div class="modal__content modal__content--diary">
+    <div id="addEntryModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="addEntryModalTitle" aria-describedby="addEntryModalDesc" hidden>
+        <div class="modal__overlay" data-close-modal-diary aria-label="Закрыть модальное окно"></div>
+        <div class="modal__content modal__content--diary" tabindex="-1">
             <button class="modal__close" data-close-modal-diary aria-label="Закрыть модальное окно">&times;</button>
             
             <div class="modal__header">
-                <h2 id="addEntryModalTitle" class="modal__title">📝 Добавить новую запись</h2>
-                <p class="modal__subtitle">Опишите свой прогресс в обучении</p>
+                <h2 id="addEntryModalTitle" class="modal__title"><span aria-hidden="true">📝</span> Добавить новую запись</h2>
+                <p id="addEntryModalDesc" class="modal__subtitle">Опишите свой прогресс в обучении</p>
             </div>
 
-            <form id="addEntryForm" class="diary-form" novalidate>
+            <form id="addEntryForm" class="diary-form" novalidate aria-label="Форма добавления записи в дневник">
                 <div class="form-group">
                     <label for="entryTitle" class="form-label">
                         <span class="label-text">Название записи</span>
-                        <span class="required">*</span>
+                        <span class="required" aria-hidden="true">*</span>
                     </label>
                     <input 
                         type="text" 
@@ -140,14 +149,16 @@
                         class="form-input" 
                         placeholder="Например: Изучение React Hooks"
                         required
+                        aria-required="true"
+                        aria-describedby="entryTitle-hint"
                         maxlength="100">
-                    <span class="input-hint">Максимум 100 символов</span>
+                    <span id="entryTitle-hint" class="input-hint">Максимум 100 символов</span>
                 </div>
 
                 <div class="form-group">
                     <label for="entryDescription" class="form-label">
                         <span class="label-text">Описание</span>
-                        <span class="required">*</span>
+                        <span class="required" aria-hidden="true">*</span>
                     </label>
                     <textarea 
                         id="entryDescription" 
@@ -156,14 +167,16 @@
                         rows="5" 
                         placeholder="Подробно опишите, чему вы научились или над чем работаете..."
                         required
+                        aria-required="true"
+                        aria-describedby="entryDescription-hint"
                         maxlength="500"></textarea>
-                    <span class="input-hint">Максимум 500 символов</span>
+                    <span id="entryDescription-hint" class="input-hint">Максимум 500 символов</span>
                 </div>
 
                 <div class="form-group">
                     <label for="entryProgress" class="form-label">
                         <span class="label-text">Прогресс выполнения</span>
-                        <span class="progress-value" id="progressValue">50%</span>
+                        <span class="progress-value" id="progressValue" aria-live="polite">50%</span>
                     </label>
                     <input 
                         type="range" 
@@ -173,8 +186,12 @@
                         min="0" 
                         max="100" 
                         value="50"
-                        step="5">
-                    <div class="range-labels">
+                        step="5"
+                        aria-label="Выберите процент выполнения от 0 до 100"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="50">
+                    <div class="range-labels" aria-hidden="true">
                         <span>0%</span>
                         <span>25%</span>
                         <span>50%</span>
@@ -183,11 +200,11 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">
+                <fieldset class="form-group">
+                    <legend class="form-label">
                         <span class="label-text">Статус</span>
-                        <span class="required">*</span>
-                    </label>
+                        <span class="required" aria-hidden="true">*</span>
+                    </legend>
                     <div class="radio-group">
                         <label class="radio-label">
                             <input 
@@ -195,28 +212,30 @@
                                 name="entryStatus" 
                                 value="progress" 
                                 checked
-                                class="radio-input">
+                                class="radio-input"
+                                aria-checked="true">
                             <span class="radio-custom"></span>
-                            <span class="radio-text">⏳ В процессе</span>
+                            <span class="radio-text"><span aria-hidden="true">⏳</span> В процессе</span>
                         </label>
                         <label class="radio-label">
                             <input 
                                 type="radio" 
                                 name="entryStatus" 
                                 value="completed"
-                                class="radio-input">
+                                class="radio-input"
+                                aria-checked="false">
                             <span class="radio-custom"></span>
-                            <span class="radio-text">✓ Завершено</span>
+                            <span class="radio-text"><span aria-hidden="true">✓</span> Завершено</span>
                         </label>
                     </div>
-                </div>
+                </fieldset>
 
                 <div class="form-actions">
                     <button type="button" class="button button--secondary" data-close-modal-diary>
                         Отмена
                     </button>
                     <button type="submit" class="button button--primary">
-                        <span class="button-icon">💾</span>
+                        <span class="button-icon" aria-hidden="true">💾</span>
                         Сохранить запись
                     </button>
                 </div>
@@ -224,6 +243,248 @@
         </div>
     </div>
 
+    <!-- Контейнер для уведомлений -->
+    <div id="notifications" class="notifications-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
     <script src="../scripts/script.js"></script>
+    <script>
+        // ==================== МОДАЛЬНОЕ ОКНО ДНЕВНИКА С LOCALSTORAGE ====================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const addEntryBtn = document.getElementById('addEntryBtn');
+            const addEntryModal = document.getElementById('addEntryModal');
+            const addEntryForm = document.getElementById('addEntryForm');
+            const closeButtons = document.querySelectorAll('[data-close-modal-diary]');
+            const progressInput = document.getElementById('entryProgress');
+            const progressValue = document.getElementById('progressValue');
+            const entriesList = document.querySelector('.diary-entries');
+
+            if (!addEntryBtn || !addEntryModal) return;
+
+            // Загрузка записей из localStorage при загрузке страницы
+            loadDiaryEntries();
+
+            // Обновление значения прогресса
+            if (progressInput && progressValue) {
+                progressInput.addEventListener('input', function() {
+                    const value = this.value;
+                    progressValue.textContent = value + '%';
+                    this.setAttribute('aria-valuenow', value);
+                });
+            }
+
+            // Открытие модального окна
+            addEntryBtn.addEventListener('click', function() {
+                openDiaryModal();
+            });
+
+            // Закрытие модального окна
+            closeButtons.forEach(btn => {
+                btn.addEventListener('click', closeDiaryModal);
+            });
+
+            // Закрытие по Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !addEntryModal.hasAttribute('hidden')) {
+                    closeDiaryModal();
+                }
+            });
+
+            // Отправка формы
+            if (addEntryForm) {
+                addEntryForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Очистка предыдущих ошибок
+                    document.querySelectorAll('.error-message').forEach(el => el.remove());
+                    document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+                    document.querySelectorAll('[aria-invalid="true"]').forEach(el => el.setAttribute('aria-invalid', 'false'));
+                    
+                    const title = document.getElementById('entryTitle');
+                    const description = document.getElementById('entryDescription');
+                    const progress = document.getElementById('entryProgress');
+                    const status = document.querySelector('input[name="entryStatus"]:checked');
+                    
+                    let isValid = true;
+                    let firstInvalidField = null;
+                    
+                    // Валидация названия
+                    if (title.value.trim().length < 3) {
+                        showError(title, 'Название должно содержать минимум 3 символа');
+                        isValid = false;
+                        if (!firstInvalidField) firstInvalidField = title;
+                    }
+                    
+                    // Валидация описания
+                    if (description.value.trim().length < 10) {
+                        showError(description, 'Описание должно содержать минимум 10 символов');
+                        isValid = false;
+                        if (!firstInvalidField) firstInvalidField = description;
+                    }
+                    
+                    if (isValid) {
+                        const entryData = {
+                            id: Date.now(),
+                            title: title.value.trim(),
+                            description: description.value.trim(),
+                            progress: parseInt(progress.value),
+                            status: status.value,
+                            date: new Date().toISOString()
+                        };
+                        
+                        // Сохранение в localStorage
+                        saveDiaryEntry(entryData);
+                        
+                        // Добавление на страницу
+                        addDiaryEntryToPage(entryData);
+                        
+                        // Сброс формы
+                        addEntryForm.reset();
+                        progressValue.textContent = '50%';
+                        progressInput.setAttribute('aria-valuenow', '50');
+                        
+                        // Закрытие модального окна
+                        closeDiaryModal();
+                        
+                        // Показать уведомление
+                        showNotification('✓ Запись успешно добавлена!', 'success');
+                    } else {
+                        if (firstInvalidField) {
+                            firstInvalidField.focus();
+                            announceToScreenReader('Форма содержит ошибки. Пожалуйста, исправьте их.');
+                        }
+                    }
+                });
+            }
+
+            // ========== ФУНКЦИИ LOCALSTORAGE ==========
+
+            function saveDiaryEntry(entryData) {
+                let entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+                entries.unshift(entryData);
+                localStorage.setItem('diaryEntries', JSON.stringify(entries));
+            }
+
+            function loadDiaryEntries() {
+                if (!entriesList) return;
+                let entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+                entries.forEach(entry => {
+                    addDiaryEntryToPage(entry, false);
+                });
+            }
+
+            function deleteDiaryEntry(id) {
+                let entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+                entries = entries.filter(entry => entry.id !== id);
+                localStorage.setItem('diaryEntries', JSON.stringify(entries));
+            }
+
+            // ========== ФУНКЦИИ ИНТЕРФЕЙСА ==========
+
+            function openDiaryModal() {
+                addEntryModal.removeAttribute('hidden');
+                addEntryModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                
+                const modalContent = addEntryModal.querySelector('.modal__content');
+                if (modalContent) {
+                    setTimeout(() => modalContent.focus(), 100);
+                }
+                
+                announceToScreenReader('Модальное окно добавления записи открыто');
+            }
+
+            function closeDiaryModal() {
+                addEntryModal.setAttribute('hidden', '');
+                addEntryModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                
+                document.querySelectorAll('.error-message').forEach(el => el.remove());
+                document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+                
+                addEntryBtn.focus();
+                announceToScreenReader('Модальное окно закрыто');
+            }
+
+            function showError(input, message) {
+                input.classList.add('input-error');
+                input.setAttribute('aria-invalid', 'true');
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.setAttribute('role', 'alert');
+                errorDiv.textContent = message;
+                input.parentElement.appendChild(errorDiv);
+            }
+
+            function addDiaryEntryToPage(data, animate = true) {
+                const newEntry = document.createElement('article');
+                newEntry.className = animate ? 'diary-entry diary-entry--new' : 'diary-entry';
+                newEntry.setAttribute('data-entry-id', data.id);
+                newEntry.setAttribute('role', 'listitem');
+                
+                const statusClass = data.status === 'completed' ? 'status--completed' : 'status--progress';
+                const statusText = data.status === 'completed' ? '✓ Завершено' : '⏳ В процессе';
+                
+                const entryDate = new Date(data.date);
+                const formattedDate = entryDate.toLocaleDateString('ru-RU', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                });
+                
+                const isoDate = entryDate.toISOString().split('T')[0];
+                
+                newEntry.innerHTML = `
+                    <div class="diary-entry__header">
+                        <h3 class="diary-entry__title">${escapeHtml(data.title)}</h3>
+                        <div class="diary-entry__actions">
+                            <span class="diary-entry__status ${statusClass}">${statusText}</span>
+                            <button class="delete-entry-btn" data-id="${data.id}" aria-label="Удалить запись ${escapeHtml(data.title)}" title="Удалить запись">
+                                <span aria-hidden="true">🗑️</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="diary-entry__date"><time datetime="${isoDate}">${formattedDate}</time></p>
+                    <p class="diary-entry__description">${escapeHtml(data.description)}</p>
+                    <div class="diary-entry__progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="${data.progress}" aria-valuemin="0" aria-valuemax="100" aria-label="Прогресс выполнения: ${data.progress} процентов">
+                            <div class="progress-bar__fill" style="--progress: ${data.progress}%;"></div>
+                        </div>
+                    </div>
+                `;
+                
+                entriesList.prepend(newEntry);
+                
+                if (animate) {
+                    setTimeout(() => {
+                        newEntry.classList.add('diary-entry--show');
+                    }, 10);
+                }
+                
+                const deleteBtn = newEntry.querySelector('.delete-entry-btn');
+                deleteBtn.addEventListener('click', function() {
+                    const entryId = parseInt(this.getAttribute('data-id'));
+                    
+                    if (confirm('Вы уверены, что хотите удалить эту запись?')) {
+                        deleteDiaryEntry(entryId);
+                        newEntry.style.opacity = '0';
+                        newEntry.style.transform = 'translateX(-20px)';
+                        setTimeout(() => {
+                            newEntry.remove();
+                            showNotification('🗑️ Запись удалена', 'info');
+                            announceToScreenReader('Запись удалена из дневника');
+                        }, 300);
+                    }
+                });
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        });
+    </script>
 </body>
 </html>

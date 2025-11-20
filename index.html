@@ -6,24 +6,27 @@
     <meta name="description" content="Портфолио студента Саблина Ивана Петровича - веб-разработчик, HTML, CSS, JavaScript, React">
     <title>Портфолио Студента - Саблин Иван Петрович</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../additional-styles.css">
 </head>
 <body>
+    <!-- Skip-link для доступности (практика 17) -->
     <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
     <div class="page">
-        <header class="header">
+        <header class="header" role="banner">
             <div class="container header__container">
                 <div class="logo">Портфолио Студента</div>
-                        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
-                    <span class="theme-icon">🌙</span>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
                 </button>
             </div>
         </header>
 
-        <nav class="nav" aria-label="Основная навигация">
+        <!-- Навигация с aria-current для текущей страницы (практика 17) -->
+        <nav class="nav" role="navigation" aria-label="Основная навигация">
             <div class="container">
                 <ul class="nav__list">
-                    <li><a href="../index.html" class="nav__link active">Главная</a></li>
+                    <li><a href="index.html" class="nav__link" aria-current="page">Главная</a></li>
                     <li><a href="pages/projects.html" class="nav__link">Практики</a></li>
                     <li><a href="pages/diary.html" class="nav__link">Новости</a></li>
                     <li><a href="pages/contacts.html" class="nav__link">Контакты</a></li>
@@ -31,11 +34,10 @@
             </div>
         </nav>
 
-        <main id="main" class="main">
-            <section class="hero">
+        <main id="main" class="main" role="main">
+            <section class="hero" aria-labelledby="hero-title">
                 <div class="container hero__container">
                     <figure class="hero__image">
-                        <!-- Picture element с WebP и JPEG + Retina поддержка -->
                         <picture>
                             <!-- WebP для современных браузеров с Retina -->
                             <source 
@@ -46,7 +48,7 @@
                                         images/avatar-400.webp 400w" 
                                 sizes="(min-width: 768px) 200px, 150px">
                             
-                            <!-- JPEG запасной формат с разными разрешениями -->
+                            <!-- JPEG запасной формат -->
                             <source 
                                 type="image/jpeg"
                                 srcset="images/avatar-150.jpg 150w, 
@@ -55,79 +57,81 @@
                                         images/avatar-400.jpg 400w" 
                                 sizes="(min-width: 768px) 200px, 150px">
                             
-                            <!-- Fallback изображение -->
+                            <!-- Fallback с alt для доступности (практика 18) -->
                             <img class="hero__photo" 
                                  src="images/avatar.jpg" 
                                  width="200" 
                                  height="200" 
-                                 alt="Портрет студента Саблина Ивана" 
+                                 alt="Портрет студента Саблина Ивана - фото профиля" 
                                  fetchpriority="high">
                         </picture>
                     </figure>
                     <div class="hero__content">
-                        <h1 class="hero__title">Саблин Иван Петрович</h1>
+                        <h1 id="hero-title" class="hero__title">Саблин Иван Петрович</h1>
                         <p class="hero__subtitle">Студент группы <strong>ЭФБО-12-24</strong></p>
                         <p class="hero__description">Учусь программировать методом научного тыка и тщательного гугления. Уже знаю, что главный навык разработчика - это умение грамотно формулировать запросы в поисковике.</p>
                         <p class="hero__description">Остальному пока учусь! Интересуюсь веб-разработкой, изучаю HTML, CSS, JavaScript и C++.</p>
-                        <a href="assets/resume.pdf" class="button button--primary" download>Скачать резюме</a>
+                        <a href="assets/resume.pdf" class="button button--primary" download aria-label="Скачать резюме в формате PDF">
+                            <span aria-hidden="true">📄</span> Скачать резюме
+                        </a>
                     </div>
                 </div>
             </section>
 
-            <section class="skills section">
+            <!-- Секция навыков с aria-labelledby (практика 17) -->
+            <section class="skills section" aria-labelledby="skills-title">
                 <div class="container">
-                    <h2 class="section-title">Мои навыки</h2>
+                    <h2 id="skills-title" class="section-title">Мои навыки</h2>
                     <div class="skills__grid">
                         <div class="skill-item">
                             <div class="skill-item__header">
                                 <span class="skill-item__name">HTML/CSS</span>
-                                <span class="skill-item__percent">90%</span>
+                                <span class="skill-item__percent" aria-label="Уровень владения">90%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar__fill" style="--progress: 90%;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML/CSS прогресс 90 процентов">
+                                <div class="progress-bar__fill" style="--progress: 90%;"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-item__header">
                                 <span class="skill-item__name">JavaScript</span>
-                                <span class="skill-item__percent">80%</span>
+                                <span class="skill-item__percent" aria-label="Уровень владения">80%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar__fill" style="--progress: 80%;" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript прогресс 80 процентов">
+                                <div class="progress-bar__fill" style="--progress: 80%;"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-item__header">
                                 <span class="skill-item__name">Bootstrap</span>
-                                <span class="skill-item__percent">85%</span>
+                                <span class="skill-item__percent" aria-label="Уровень владения">85%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar__fill" style="--progress: 85%;" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Bootstrap прогресс 85 процентов">
+                                <div class="progress-bar__fill" style="--progress: 85%;"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-item__header">
                                 <span class="skill-item__name">React</span>
-                                <span class="skill-item__percent">60%</span>
+                                <span class="skill-item__percent" aria-label="Уровень владения">60%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar__fill" style="--progress: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="React прогресс 60 процентов">
+                                <div class="progress-bar__fill" style="--progress: 60%;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Новая секция: Адаптивная галерея проектов -->
-            <section class="projects-preview section projects-area">
+            <!-- Секция проектов с улучшенной доступностью (практика 17) -->
+            <section class="projects-preview section projects-area" aria-labelledby="projects-title">
                 <div class="container">
-                    <h2 class="section-title">Лучшие проекты</h2>
+                    <h2 id="projects-title" class="section-title">Лучшие проекты</h2>
                     <div class="projects-gallery">
-                        <!-- Проект 1: HTML/CSS -->
+                        <!-- Проект 1 -->
                         <article class="project-card" data-category="html">
                             <div class="project-card__image-wrapper">
                                 <picture>
-                                    <!-- Разные изображения для разных экранов -->
                                     <source 
                                         media="(min-width: 1200px)" 
                                         type="image/webp"
@@ -140,34 +144,26 @@
                                         type="image/webp"
                                         srcset="images/project1-mobile.webp">
                                     
-                                    <!-- Fallback JPEG -->
-                                    <source 
-                                        media="(min-width: 1200px)" 
-                                        srcset="images/project1-desktop.jpg">
-                                    <source 
-                                        media="(min-width: 768px)" 
-                                        srcset="images/project1-tablet.jpg">
-                                    
                                     <img src="images/project1.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот личного сайта" 
+                                         alt="Скриншот личного сайта-визитки с адаптивным дизайном" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </picture>
                             </div>
                             <div class="project-card__content">
                                 <h3 class="project-card__title">Личный сайт</h3>
-                                <div class="project-card__tags">
-                                    <span class="tag">HTML</span>
-                                    <span class="tag">CSS</span>
+                                <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                    <span class="tag" role="listitem">HTML</span>
+                                    <span class="tag" role="listitem">CSS</span>
                                 </div>
                                 <p class="project-card__description">Мой первый веб-проект, верстка личной визитной карточки</p>
-                                <button class="button button--secondary project-details-btn" data-project="0">Подробнее</button>
+                                <button class="button button--secondary project-details-btn" data-project="0" aria-label="Показать подробную информацию о личном сайте">Подробнее</button>
                             </div>
                         </article>
 
-                        <!-- Проект 2: JavaScript -->
+                        <!-- Проект 2 -->
                         <article class="project-card" data-category="javascript">
                             <div class="project-card__image-wrapper">
                                 <picture>
@@ -186,22 +182,22 @@
                                     <img src="images/project2.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот Todo-приложения" 
+                                         alt="Скриншот Todo-приложения с списком задач" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </picture>
                             </div>
                             <div class="project-card__content">
                                 <h3 class="project-card__title">Todo-приложение</h3>
-                                <div class="project-card__tags">
-                                    <span class="tag">JavaScript</span>
+                                <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                    <span class="tag" role="listitem">JavaScript</span>
                                 </div>
                                 <p class="project-card__description">Функциональное приложение с сохранением данных в localStorage</p>
-                                <button class="button button--secondary project-details-btn" data-project="1">Подробнее</button>
+                                <button class="button button--secondary project-details-btn" data-project="1" aria-label="Показать подробную информацию о Todo-приложении">Подробнее</button>
                             </div>
                         </article>
 
-                        <!-- Проект 3: React -->
+                        <!-- Проект 3 -->
                         <article class="project-card" data-category="react">
                             <div class="project-card__image-wrapper">
                                 <picture>
@@ -220,36 +216,36 @@
                                     <img src="images/project3.jpg" 
                                          width="400" 
                                          height="250" 
-                                         alt="Скриншот интернет-магазина" 
+                                         alt="Скриншот интернет-магазина с карточками товаров" 
                                          class="project-card__image"
                                          loading="lazy">
                                 </picture>
                             </div>
                             <div class="project-card__content">
                                 <h3 class="project-card__title">Интернет-магазин</h3>
-                                <div class="project-card__tags">
-                                    <span class="tag">React</span>
+                                <div class="project-card__tags" role="list" aria-label="Технологии проекта">
+                                    <span class="tag" role="listitem">React</span>
                                 </div>
                                 <p class="project-card__description">Сайт с корзиной и фильтрацией товаров</p>
-                                <button class="button button--secondary project-details-btn" data-project="2">Подробнее</button>
+                                <button class="button button--secondary project-details-btn" data-project="2" aria-label="Показать подробную информацию об интернет-магазине">Подробнее</button>
                             </div>
                         </article>
                     </div>
                     <div class="text-center">
-                        <a href="pages/projects.html" class="button button--primary">Все проекты</a>
+                        <a href="pages/projects.html" class="button button--primary" aria-label="Перейти на страницу со всеми проектами">Все проекты</a>
                     </div>
                 </div>
             </section>
 
-            <!-- Демонстрация Object-fit -->
-            <section class="section object-fit-demo-section">
+            <!-- Демонстрация Object-fit (практика 16) -->
+            <section class="section object-fit-demo-section" aria-labelledby="objectfit-title">
                 <div class="container">
-                    <h2 class="section-title">Демонстрация Object-fit</h2>
+                    <h2 id="objectfit-title" class="section-title">Демонстрация Object-fit</h2>
                     <div class="object-fit-demo">
                         <div class="object-fit-item">
                             <div class="object-fit-container">
                                 <img src="images/demo-square.jpg" 
-                                     alt="Object-fit cover пример" 
+                                     alt="Демонстрация object-fit cover - изображение обрезается для заполнения контейнера" 
                                      class="object-fit-cover"
                                      width="300"
                                      height="200"
@@ -260,7 +256,7 @@
                         <div class="object-fit-item">
                             <div class="object-fit-container">
                                 <img src="images/demo-square.jpg" 
-                                     alt="Object-fit contain пример" 
+                                     alt="Демонстрация object-fit contain - изображение вписывается в контейнер полностью" 
                                      class="object-fit-contain"
                                      width="300"
                                      height="200"
@@ -271,7 +267,7 @@
                         <div class="object-fit-item">
                             <div class="object-fit-container">
                                 <img src="images/demo-square.jpg" 
-                                     alt="Object-fit fill пример" 
+                                     alt="Демонстрация object-fit fill - изображение растягивается на весь контейнер" 
                                      class="object-fit-fill"
                                      width="300"
                                      height="200"
@@ -284,26 +280,29 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <div class="container footer__container">
-                <p class="footer__copyright">&copy; 2024 Саблин Иван Петрович. Все права защищены.</p>
-                <div class="footer__links">
-                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
-                    <a href="mailto:ivansablin90@gmail.com" class="footer__link">Email</a>
-                </div>
+                <p class="footer__copyright">&copy; 2025 Саблин Иван Петрович. Все права защищены.</p>
+                <nav class="footer__links" aria-label="Социальные сети">
+                    <a href="https://github.com/sablin1412" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="GitHub профиль Саблина Ивана">GitHub</a>
+                    <a href="mailto:ivansablin90@gmail.com" class="footer__link" aria-label="Отправить email на ivansablin90@gmail.com">Email</a>
+                </nav>
             </div>
         </footer>
     </div>
 
-    <!-- Модальное окно для деталей проекта -->
-    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
-        <div class="modal__overlay" data-close-modal></div>
-        <div class="modal__content">
+    <!-- Модальное окно с полной доступностью (практика 17) -->
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" hidden>
+        <div class="modal__overlay" data-close-modal aria-label="Закрыть модальное окно"></div>
+        <div class="modal__content" tabindex="-1">
             <button class="modal__close" data-close-modal aria-label="Закрыть модальное окно">&times;</button>
             <h2 id="modalTitle" class="modal__title"></h2>
-            <div class="modal__body"></div>
+            <div id="modalDescription" class="modal__body"></div>
         </div>
     </div>
+
+    <!-- Уведомления с aria-live (практика 18) -->
+    <div id="notifications" class="notifications-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="scripts/script.js"></script>
 </body>
