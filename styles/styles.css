@@ -1154,3 +1154,14 @@ picture {
         height: 250px;
     }
 }
+body, .contact-form, .form-input, .form-textarea, .contact-item, .section-title, p, label, .contact-link {
+    color: #212121 !important;
+    background: #fff !important;
+}
+.button, .button--primary {
+    background: #0657c2 !important;
+    color: #fff !important;
+}
+.button--primary:focus, .button--primary:hover {
+    background: #02367a !important;
+}
